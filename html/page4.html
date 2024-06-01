@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Page 4</title>
+    <title>Page 1</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div id="mosaic" style="filter: blur(8px);">
-        <!-- このセクションにモザイク処理が適用されます -->
-        <h1>Welcome to Page 1</h1>
-        <p>Here is some important content that is initially obscured.</p>
+    <div class="background"></div>
+    <div class="card">
+        <div id="mosaic" class="mosaic-effect">
+            <!-- このセクションにモザイク処理が適用されます -->
+            <h1>今日は来てくれてありがとう</h1>
+            <p>サンプルメッセージ</p>
+            <p>サンプルサンプル</p>
+        </div>
+        <div class="content">
+            <input type="hidden" id="correctPassword" value="合言葉"> <!-- ここでパスワードを設定 -->
+            <input type="text" id="password" placeholder="合言葉を入力">
+            <div id="message">合言葉を入力してね</div>
+        </div>
     </div>
-    <input type="password" id="password" placeholder="Enter password to reveal content">
-    <script>
-        document.getElementById('password').addEventListener('input', function(e) {
-            if (e.target.value === 'correctpassword') {
-                document.getElementById('mosaic').style.filter = 'none';
-            }
-        });
-    </script>
+    <script src="../mosaic.js"></script>
 </body>
 </html>
