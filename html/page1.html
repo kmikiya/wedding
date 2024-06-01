@@ -36,15 +36,19 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 300px; /* 入力欄の幅を100pxに設定 */
+            width: 300px; /* 入力欄の幅を300pxに設定 */
             padding: 10px;
             text-align: center;
         }
         .content input[type="text"] {
             width: 100%; /* 入力欄の幅を100%に設定 */
-            padding: 10px;
+            padding: 20px; /* パディングを増やしてフォームを大きくする */
+            font-size: 1.5em; /* フォントサイズを大きくする */
             border: 1px solid #ccc;
             border-radius: 5px;
+        }
+        .content #message {
+            font-size: 1.5em; /* メッセージのフォントサイズを大きくする */
         }
         h1 {
             margin-top: 0;
@@ -92,21 +96,15 @@
             <h1>今日は来てくれてありがとう</h1>
             <p>サンプルメッセージ</p>
             <p>サンプルサンプル</p>
-            <p>サンプルサンプル</p>
-            <p>サンプルサンプル</p>
-            <p>サンプルサンプル</p>
-            <p>サンプルサンプル</p>
         </div>
         <div class="content">
             <input type="text" id="password" placeholder="合言葉を入力">
-            <div id="message">合言葉を入力してね<br>
-                ヒント:
-            </div>
+            <div id="message">合言葉を入力してね</div>
         </div>
     </div>
     <script>
         document.getElementById('password').addEventListener('input', function(e) {
-            const correctPassword = '合言葉';  // 必要に応じて変更
+            const correctPassword = 'correctpassword';  // 必要に応じて変更
             const inputPassword = e.target.value;
 
             if (inputPassword === correctPassword) {
