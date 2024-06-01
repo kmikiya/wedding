@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page 3</title>
+</head>
+<body>
+    <div id="mosaic" style="filter: blur(8px);">
+        <!-- このセクションにモザイク処理が適用されます -->
+        <h1>Welcome to Page 1</h1>
+        <p>Here is some important content that is initially obscured.</p>
+    </div>
+    <input type="password" id="password" placeholder="Enter password to reveal content">
+    <script>
+        document.getElementById('password').addEventListener('input', function(e) {
+            if (e.target.value === 'correctpassword') {
+                document.getElementById('mosaic').style.filter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
