@@ -3,7 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Page 1</title>
-    <link rel="stylesheet" href="../style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f8ff; /* パステルカラーの背景色 */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+            border: 2px solid #ffb6c1; /* パステルピンクの枠線 */
+            position: relative;
+        }
+        .mosaic-effect {
+            filter: blur(8px);
+            transition: filter 0.3s ease-in-out;
+        }
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+        .content input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h1 {
+            margin-top: 0;
+            color: #ffb6c1; /* パステルピンクのタイトルカラー */
+        }
+        p {
+            line-height: 1.6;
+            position: relative;
+        }
+        p::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #ffb6c1; /* パステルピンクの罫線 */
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/fancy-deboss.png'); /* 背景の模様 */
+            opacity: 0.1;
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
     <div class="background"></div>
@@ -15,11 +82,23 @@
             <p>サンプルサンプル</p>
         </div>
         <div class="content">
-            <input type="hidden" id="correctPassword" value="合言葉"> <!-- ここでパスワードを設定 -->
             <input type="text" id="password" placeholder="合言葉を入力">
             <div id="message">合言葉を入力してね</div>
         </div>
     </div>
-    <script src="../mosaic.js"></script>
+    <script>
+        document.getElementById('password').addEventListener('input', function(e) {
+            const correctPassword = '合言葉';  // 必要に応じて変更
+            const inputPassword = e.target.value;
+
+            if (inputPassword === correctPassword) {
+                document.getElementById('mosaic').style.filter = 'none';
+                document.querySelector('.content').style.display = 'none';
+            } else {
+                document.getElementById('mosaic').style.filter = 'blur(8px)';
+                document.getElementById('message').textContent = '合言葉を入力';
+            }
+        });
+    </script>
 </body>
 </html>
