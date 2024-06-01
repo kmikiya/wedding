@@ -6,5 +6,3 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy the static HTML files
 COPY html /usr/share/nginx/html
-
-COPY style /usr/share/nginx/style
